@@ -2,7 +2,6 @@
 from scapy.all import sniff, IP, TCP, UDP, get_if_list, conf
 from datetime import datetime
 import json
-import os
 
 # ─── Step 1: Find your interface ───────────────────────────────────────────────
 def list_interfaces():
