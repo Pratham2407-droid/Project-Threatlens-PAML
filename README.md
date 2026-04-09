@@ -39,7 +39,7 @@ pip install -r requirements.txt
 python -m server.app
 ```
 
-Server starts at `http://0.0.0.0:5000`
+Server starts at `http://0.0.0.0:5500`
 
 ---
 
@@ -118,7 +118,7 @@ Returns raw ingested feature logs (no ML result), useful for debugging.
 
 ## WebSocket (Dashboard lead)
 
-Connect to `http://<server-ip>:5000` using Socket.IO.
+Connect to `http://<server-ip>:5500` using Socket.IO.
 
 **Events emitted by server:**
 
@@ -130,7 +130,7 @@ Connect to `http://<server-ip>:5000` using Socket.IO.
 **Example (JavaScript):**
 
 ```js
-const socket = io("http://<server-ip>:5000");
+const socket = io("http://<server-ip>:5500");
 socket.on("alert", (data) => {
   console.log("ATTACK DETECTED", data);
 });
@@ -146,7 +146,7 @@ sio = socketio.Client()
 def on_alert(data):
     print("ATTACK DETECTED", data)
 
-sio.connect("http://<server-ip>:5000")
+sio.connect("http://<server-ip>:5500")
 ```
 
 ---
@@ -191,16 +191,16 @@ Feature Engineering lead reads this file and produces the feature dict for `/ing
 
 ```bash
 # Health check
-curl http://localhost:5000/status
+curl http://localhost:5500/status
 
 # Simulate normal traffic
-curl -X POST http://localhost:5000/ingest -H "Content-Type: application/json" -d "{"node_id": "test", "packets_per_sec": 50, "unique_ports": 3, "avg_packet_size": 300, "connection_count": 10}"
+curl -X POST http://localhost:5500/ingest -H "Content-Type: application/json" -d "{"node_id": "test", "packets_per_sec": 50, "unique_ports": 3, "avg_packet_size": 300, "connection_count": 10}"
 
 # Simulate attack traffic (pps > 200 triggers alert in stub mode)
-curl -X POST http://localhost:5000/ingest -H "Content-Type: application/json" -d "{"node_id": "test", "packets_per_sec": 250, "unique_ports": 40, "avg_packet_size": 900, "connection_count": 200}"
+curl -X POST http://localhost:5500/ingest -H "Content-Type: application/json" -d "{"node_id": "test", "packets_per_sec": 250, "unique_ports": 40, "avg_packet_size": 900, "connection_count": 200}"
 
 # Check stored alerts
-curl http://localhost:5000/alerts
+curl http://localhost:5500/alerts
 ```
 
 ---
