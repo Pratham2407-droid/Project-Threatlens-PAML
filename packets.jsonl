@@ -1,0 +1,5 @@
+{"src_ip":"192.168.1.10","dst_ip":"8.8.8.8","port":80,"protocol":"TCP","size":500,"time":"2025-01-01"}
+{"src_ip":"192.168.1.11","dst_ip":"8.8.4.4","port":443,"protocol":"TCP","size":700,"time":"2025-01-01"}
+{"src_ip":"192.168.1.12","dst_ip":"1.1.1.1","port":22,"protocol":"TCP","size":200,"time":"2025-01-01"}
+{"src_ip":"192.168.1.13","dst_ip":"9.9.9.9","port":8080,"protocol":"TCP","size":900,"time":"2025-01-01"}
+{"src_ip":"192.168.1.14","dst_ip":"4.2.2.2","port":53,"protocol":"UDP","size":100,"time":"2025-01-01"}
